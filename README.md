@@ -15,5 +15,4 @@
    - --format documentation (or nyan-cat...?)
 6. create db
 
-Est-ce que ça suffit ? J'ai oublié quelque chose ?
 
