@@ -19,8 +19,6 @@ class UserMailer < ApplicationMailer
     @admin = User.find_by(id: @event.user_id)
     p @event.title
     p @admin.first_name
-    #@user = att # TODO Pas sûr de mon coup
-    #@url  = 'http://monsite.fr/login' 
     mail(to: @admin.email, subject: 'Un nouveau participant !') 
   end
 end
