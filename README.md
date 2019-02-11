@@ -1,19 +1,12 @@
 # README
 
-## Install
+## Test
 
-1. add gems
-   - all : simple_form, faker
-   - dev + test : rspec-rails, factory_bot_rails, hirb
-   - test : shoulda_matchers, rails-controller-testing, nyan-cat
+Pour tester le mailer, les validations sont désactivées.
 
-2. change db config info (for windows)
-3. run `rails generate rspec:init`
-4. run `rails generate simple_form:init`
-5. add to `.rspec`:
-   - --require rails_helper
-   - --format documentation (or nyan-cat...?)
-6. create db
+Il suffit de donner un `first_name` et un `email` aux users pour envoyer la confirmation d'inscription au service.
+
+Pour l'envoi des alertes d'inscription aux événements, il suffit de donner des `user_id` et `event_id` déjà existants. L'adresse de réception par défaut est [*testme@yopmail.com*](http://www.yopmail.com/).
 
 ### Schema de la base de données
 

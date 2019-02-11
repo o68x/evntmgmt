@@ -3,6 +3,9 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :users, through: :attendances
 
+  # Validations desactivated to test faster
+  # in the console
+  
 =begin
   validates :start_date, presence: true
   validates :duration, presence: true
