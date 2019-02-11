@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :users, through: :attendances
 
+=begin
   validates :start_date, presence: true
   validates :duration, presence: true
   validates :title, presence: true
@@ -17,6 +18,7 @@ class Event < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 1 }
   validates :price, numericality: { less_than_or_equal_to: 1000 }
   validates :duration, numericality: { greater_than_or_equal_to: 0 }
+=end
 
   private
   
