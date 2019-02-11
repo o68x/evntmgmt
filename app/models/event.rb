@@ -1,12 +1,3 @@
-class PriceRangeValidator < ActiveModel::Validator
-  def validate(record)
-    p record
-    if record.price < 1 && record.price > 1000
-      record.errors.add(:price, "must be in the tolerated range")
-    end
-  end
-end
-
 class Event < ApplicationRecord
   belongs_to :admin, class_name: 'User', foreign_key: 'user_id'
   has_many :attendances
@@ -23,23 +14,19 @@ class Event < ApplicationRecord
   validates :title, length: { in: 5..240 }
   validates :description, length: { in: 20..1000 }
   validates :price, numericality: { only_integer: true }
-
-  # validates_with PriceRangeValidator
+  validates :price, numericality: { greater_than_or_equal_to: 1 }
+  validates :price, numericality: { less_than_or_equal_to: 1000 }
+  validates :duration, numericality: { greater_than_or_equal_to: 0 }
 
   private
-
+  
   def start_date_is_future
-    start_date.future?
+    p start_date
+    errors.add(:start_date, "is already over") unless :start_date >= 0
   end
 
   def duration_is_multiple_of_five
-    duration % 5 == 0 ? true : false
+    errors.add(:duration, "is not a multiple of 5 (minutes)") unless duration % 5 == 0
   end
-
-  def duration_is_positive
-    duration > 0 ? true : false
-  end
-
 
 end
-
