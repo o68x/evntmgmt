@@ -15,4 +15,7 @@
    - --format documentation (or nyan-cat...?)
 6. create db
 
+## Database
+
+![eventmgmt db schema](./readme_assets/eventmgmt_schema.png "eventmgmt db schema")
 
