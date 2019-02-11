@@ -5,9 +5,10 @@ class Attendance < ApplicationRecord
   validates :user, presence: true
   validates :event, presence: true
 
-  after_create :welcome
+  after_create :attendance_send
 
-  def welcome
-    # TODO Rien compris encore
+  def attendance_send
+    UserMailer.attendance_email(self).deliver_now
   end
+
 end
