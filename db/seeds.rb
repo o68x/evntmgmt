@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+Faker::Config.locale = 'fr'
+
+20.times do |index|
+  s = User.create(email: "testme@yopmail.com", encrypted_password: "HIDDEN", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.paragraph)
+end
+
+10.times do |index|
+  s = Event.create(start_date: Faker::Date.forward(15), duration: rand(12..48) * 5, title: Faker::Quote.robin, description: Faker::Quote.yoda, price: rand(50..400), location: Faker::Address.city, user_id: User.all.sample.id)
+end
+
+50.times do |index|
+  s = Attendance.create(stripe_customer_id: "HIDDEN", user_id: User.all.sample.id, event_id: Event.all.sample.id)
+end
