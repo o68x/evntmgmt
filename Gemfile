@@ -43,6 +43,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'bcrypt'
 gem 'dotenv-rails'
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,6 +63,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener'
+  gem 'meta_request'
 end
 
 group :test do
