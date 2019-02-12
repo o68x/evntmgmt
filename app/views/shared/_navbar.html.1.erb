@@ -1,3 +1,7 @@
+<div class="jumbotron">
+    <h1>this is the greatest navbar</h1>
+</div>
+
 <class class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
     <a class="navbar-brand" href="/">EventMGMT</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb"
@@ -19,6 +23,7 @@
 
         <ul class="nav navbar-nav ml-auto">
             <!-- Dropdown AVEC user connected -->
+            <% if user_signed_in? %>
             <li class="dropdown">
                 <button class="dropdown-toggle btn btn-dark" id="dropdownMenuButton" data-toggle="dropdown" href="#"><span
                         class="fas fa-user"></span> Log in </button>
