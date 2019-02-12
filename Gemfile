@@ -73,6 +73,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  # testing this
+  gem 'coveralls', require: false
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
+  # project specific
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'rails-controller-testing'
   gem "nyan-cat-formatter"
