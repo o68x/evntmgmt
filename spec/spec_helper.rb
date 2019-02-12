@@ -95,10 +95,8 @@ RSpec.configure do |config|
 =end
 end
 
-require 'coveralls'
 require 'simplecov'
 require 'simplecov-console'
-Coveralls.wear!
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
   [

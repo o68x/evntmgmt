@@ -1,6 +1,15 @@
-<h1><%= @user.first_name %></h1>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
+<p>Email : <%= @user.email %></p>
+
+<p>Description : <%= @user.description %></p>
+
+# Note : `present` est une méthode de rails, pas de ruby
+<% if @events.present? %>
+<p>Événements proposés</p>
 <ul>
-    <li><%= @user.last_name %></li>
-    <li>#TODO Comment avoir les events créés ?</li>
+    <% @events.each do |event| %>
+    <li><%= event.title %></li>
+    <% end %>
 </ul>
+<% end %>

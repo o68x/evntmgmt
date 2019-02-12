@@ -28,3 +28,4 @@
 .env
 .favorites.json
 coverage/*
+coverage/.resultset.json
