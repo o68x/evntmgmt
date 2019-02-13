@@ -1,11 +1,15 @@
-class AttendancesController < ApplicationController
-  def new
-    @event = Event.find(params[:event_id])
-    @attendance = Attendance.new
+class StripeCharge
+# create a stripe payment
+# call with StripeCharge.new.perform
+# TODO add keys to Heroku
+  def initialize(params)
+    @event = params[:event_id]
+    @amount = params[:amount]
+    @email = params[:stripeEmail]
+    @source = params[:stripeToken]
   end
 
-  def create
-    # create a stripe payment
+  def perform
     @event = Event.find(params[:event_id])
     @amount = @event.price * 100
 
@@ -20,16 +24,9 @@ class AttendancesController < ApplicationController
       description:  'Rails Stripe customer',
       currency:     'usd'
     )
-    @attendance = Attendance.save(attendance_params)
-    
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
-end
-
-private
-
-def attendance_params
-  params.require(:attendance).permit(:stripeToken, :event_id, :user_id)
 end

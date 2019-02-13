@@ -6,7 +6,6 @@ class Event < ApplicationRecord
   # Validations desactivated to test faster
   # in the console
   
-=begin
   validates :start_date, presence: true
   validates :duration, presence: true
   validates :title, presence: true
@@ -21,7 +20,6 @@ class Event < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 1 }
   validates :price, numericality: { less_than_or_equal_to: 1000 }
   validates :duration, numericality: { greater_than_or_equal_to: 0 }
-=end
 
   private
   
