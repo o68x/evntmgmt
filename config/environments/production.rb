@@ -92,3 +92,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+
+# REF SendGrid is not working, disabling this
+config.action_mailer.perform_deliveries = false
