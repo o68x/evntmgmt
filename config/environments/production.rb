@@ -94,4 +94,4 @@ Rails.application.configure do
 end
 
 # REF SendGrid is not working, disabling this
-config.action_mailer.perform_deliveries = false
+# config.action_mailer.perform_deliveries = false
