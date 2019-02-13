@@ -2,6 +2,8 @@
 
     <h1><%= @event.title %></h1>
 
+    <%= link_to "Inscris-toi !", new_event_attendance_path(@event.id) %>
+
     <p>Participants</p>
 <ul>
     <% @attendants.each do |attendant| %>

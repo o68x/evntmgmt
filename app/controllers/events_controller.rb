@@ -36,7 +36,7 @@ class EventsController < ApplicationController
     @attendances = Attendance.where(event_id: @event.id)
     @attendants = @attendances.map { |a| User.find(a.user_id) }
     puts 'showattendants'
-    puts params #tu sais que params doit s'afficher entre les 2
+    puts params
     puts '=' * 50
   end
 
