@@ -1,23 +1,25 @@
-<div class="card-columns">
+<div class="container">
 
-    <% @events.each do |event| %>
-    <div class="card">
-        <div class="card-body">
-            <h5 class=card-title>
-                <%= event[:title] %>
-            </h5>
-            <a class="card-text">
-                <p>
-                    <%= event.title %>
-            </a></em>.</p>
-            <div type="button" class="btn btn-default">
+
+    <div class="card-columns">
+
+        <% @events.each do |event| %>
+        <div class="card">
+            <div class="card-body">
+                <h5 class=card-title>
+                    <%= event[:title] %>
+                </h5>
+                <a class="card-text">
+                    <p>
+                        <%= event.title %>
+                </a></em>.</p>
+                <a class="button card-link btn btn-primary m-1" href="<%= event_path(event[:id]) %>"><i class="fas fa-arrow-right"></i></a>
             </div>
-            <a class="button card-link btn btn-primary justify-right m-1" href="<%= event_path(event[:id]) %>"><i class="fas fa-arrow-right    "></i></a>
+            <div class="card-footer text-muted">
+                <%= event[:created_at].strftime("%d/%m/%y") %>
+            </div>
         </div>
-        <div class="card-footer text-muted">
-            <%= event[:created_at].strftime("%d/%m/%y") %>
-        </div>
-    </div>
-    <% end %>
+        <% end %>
 
+    </div>
 </div>

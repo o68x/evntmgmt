@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Eventmgmt</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <!-- FIXME CSS à mettre au bon endroit -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-    crossorigin="anonymous">   
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= render 'shared/navbar' %>
-      <%= yield %>
-    <%= render 'shared/footer' %>
-  </body>
+<head>
+  <title>Eventmgmt</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <!-- FIXME CSS à mettre au bon endroit -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <%= render 'shared/navbar' %>
+
+  <% flash.each do |key, value| %>
+    <div class="<%= flash_class(key) %>" role="alert">
+      <%= value %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+
+  <%= yield %>
+
+  <%= render 'shared/footer' %>
+</body>
+
 </html>

@@ -12,16 +12,20 @@
             <li class="nav-item">
                 <%= link_to 'Something', '#', class: "nav-link" %>
             </li>
+            <% if user_signed_in? %>
             <li class="nav-item btn btn-primary">
-                <%= link_to 'Some kind of button to create event', "#", class: "nav-link" %>
+                <%= link_to 'Nouvel événement', new_event_path, class: "nav-link" %>
             </li>
+            <% end %>
         </ul>
 
         <ul class="nav navbar-nav ml-auto">
             <!-- Dropdown AVEC user connected -->
             <li class="dropdown">
                 <button class="dropdown-toggle btn btn-dark" id="dropdownMenuButton" data-toggle="dropdown" href="#"><span
-                        class="fas fa-user"></span> Log in </button>
+                        class="fas fa-user"></span>
+                        <%= user_signed_in? ? current_user.email : 'Log in' %>
+                </button>
                 <ul class="dropdown-menu dropdown-menu-right p-3" style="width: 250px;">
                     <% if user_signed_in? %>
                     <li>
@@ -32,7 +36,7 @@
                         <%= current_user.email %>
                     </li>
                     <li>
-                        <%= link_to "Secret page", home_secret_path %>
+                        <%= link_to "edit_user_path", edit_user_path(current_user.id) %>
                     </li>
                     <li>
                         <%= link_to "Edit email / password", edit_user_registration_path %>
