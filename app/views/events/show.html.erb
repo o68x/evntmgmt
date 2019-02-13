@@ -2,4 +2,11 @@
 
     <h1><%= @event.title %></h1>
 
+    <p>Participants</p>
+<ul>
+    <% @attendants.each do |attendant| %>
+    <li><%= attendant.email %></li>
+    <% end %>
+</ul>
+
 </div>

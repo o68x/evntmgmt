@@ -1,6 +1,10 @@
+<h1>Inscription à l'event</h1>
+
 <p>Enter the special credit card number 4242 4242 4242 4242, a three-digit CVC, and any expiry date in the future</p>
 
-<%= form_tag attendances_path do %>
+<p>Vous avec choisi de vous inscire à <%= @event.title %> qui aura lieu <%= @event.start_date %> à <%= @event.location %>.</p>
+
+<%= form_tag event_attendances_path do %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -8,13 +12,13 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: $5.00</span>
+      <span>Payez: <%= @event.price %></span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
-          data-amount="500"
+          data-amount="<%= @event.price * 100 %>"
           data-locale="auto"></script>
 <% end %>
