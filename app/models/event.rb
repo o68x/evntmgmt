@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   # Validations desactivated to test faster
   # in the console
   
+  
   validates :start_date, presence: true
   validates :duration, presence: true
   validates :title, presence: true

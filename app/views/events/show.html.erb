@@ -1,14 +1,35 @@
 <div class="container">
+    <div class="jumbotron">
+        <h1><%= @event.title %></h1>
+        <% if user_signed_in? && current_user == @event.admin %>
+        <a href="<%= event_path(@event.id) %>/admin" class="nav-item btn btn-primary" role="button">Mon espace</a>
+        <% else %>
+        <h2>Un événement proposé par <a href="mailto:<%= @event.admin.email %>"><%= @event.admin.email %></a></h2>
+        <% end %>
+    </div>
 
-    <h1><%= @event.title %></h1>
+    <h2>Description</h2>
+    <p><%= @event.description %></p>
 
-    <%= link_to "Inscris-toi !", new_event_attendance_path(@event.id) %>
+    <h2>Date</h2>
+    <p><%= @event.start_date %></p>
 
-    <p>Participants</p>
-<ul>
-    <% @attendants.each do |attendant| %>
-    <li><%= attendant.email %></li>
+    <h2>Prix</h2>
+    <p><%= @event.price %></p>
+    
+    <% if user_signed_in? && current_user != @event.admin %>
+    <%= link_to "Inscris-toi !", new_event_attendance_path(@event.id), class: "nav-item btn btn-primary", role: "button" %>
     <% end %>
-</ul>
+
+    <p><br/>Déjà <%= @attendants.count %> participants</p>
+
+    <!--# TODO Pb ajout des inscriptions dans la db -->
+    <% if user_signed_in? && current_user == @event.admin %>
+    <ul>
+        <% @attendants.each do |attendant| %>
+        <li><a href="mailto:<%= attendant.email %>"><%= attendant.email %></a></li>
+        <% end %>
+    </ul>
+    <% end %>
 
 </div>

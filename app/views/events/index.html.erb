@@ -11,12 +11,13 @@
                 </h5>
                 <a class="card-text">
                     <p>
-                        <%= event.title %>
+                        <%= event.description %>
                 </a></em>.</p>
                 <a class="button card-link btn btn-primary m-1" href="<%= event_path(event[:id]) %>"><i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="card-footer text-muted">
-                <%= event[:created_at].strftime("%d/%m/%y") %>
+                <%= event[:start_date].strftime("%d/%m/%y") %><br/>
+                <%= event.price %> €
             </div>
         </div>
         <% end %>

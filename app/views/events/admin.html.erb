@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1>Mon espace événement</h1>
+        <h2><%= @event.title %></h2>
+    </div>
+
+    <h2>Description</h2>
+    <p><%= @event.description %></p>
+
+    <h2>Date</h2>
+    <p><%= @event.start_date %></p>
+
+    <h2>Prix</h2>
+    <p><%= @event.price %></p>
+    
+    <% if user_signed_in? && current_user == @event.admin %>
+    <%= link_to "Modifier l'événement", edit_event_path(@event.id), class: "nav-item btn btn-primary m-1", role: "button" %>
+    <%= link_to "Supprimer l'événement", @event, method: :delete, class: "nav-item btn btn-danger m-1", role: "button" %>
+    <% end %>
+    <!-- TODO Faire une table jolie -->
+    <h2>Participants</h2>
+    <% if user_signed_in? && current_user == @event.admin %>
+    <ul>
+        <% @attendants.each do |attendant| %>
+        <li><a href="mailto:<%= attendant.email %>"><%= attendant.email %></a></li>
+        <% end %>
+    </ul>
+    <% end %>
+
+</div>

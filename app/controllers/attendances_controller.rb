@@ -20,16 +20,10 @@ class AttendancesController < ApplicationController
       description:  'Rails Stripe customer',
       currency:     'usd'
     )
-    @attendance = Attendance.save(attendance_params)
+    # @attendance = Attendance.save(attendance_params)
     
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
-end
-
-private
-
-def attendance_params
-  params.require(:attendance).permit(:stripeToken, :event_id, :user_id)
 end

@@ -1,6 +1,5 @@
 <div class="container">
 
-
     <%= simple_form_for @event do |f| %>
 
     <%= f.input :title %>
@@ -16,6 +15,8 @@
     <%= f.input :duration %>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <input name="_method" type="hidden" value="patch" />
 
     <div class="form-group row mb-0">
         <div class="col-sm-9 offset-sm-3">
