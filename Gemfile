@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Some THP added stuff
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'bootstrap'
+gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'

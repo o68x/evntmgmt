@@ -21,6 +21,13 @@ class AttendancesController < ApplicationController
       currency:     'usd'
     )
     # @attendance = Attendance.save(attendance_params)
+    a = Attendance.new(stripe_customer_id: customer.id, event_id: @event.id, user_id: current_user.id)
+
+		if a.save
+			redirect_to event_path(@event.id)
+		else
+			render new_event_charge_path(@event.id)
+    end
     
   rescue Stripe::CardError => e
     flash[:error] = e.message

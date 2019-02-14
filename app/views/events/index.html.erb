@@ -13,7 +13,7 @@
                     <p>
                         <%= event.description %>
                 </a></em>.</p>
-                <a class="button card-link btn btn-primary m-1" href="<%= event_path(event[:id]) %>"><i class="fas fa-arrow-right"></i></a>
+                <a class="button card-link btn btn-primary m-1" href="<%= event_path(event[:id]) %>"><i class="fa fas fa-arrow-right"></i></a>
             </div>
             <div class="card-footer text-muted">
                 <%= event[:start_date].strftime("%d/%m/%y") %><br/>
