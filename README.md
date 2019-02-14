@@ -1,20 +1,17 @@
 # README
 
-## Test
+**En prod' sur [Heroku](https://evntmgmt.herokuapp.com/).**
 
-Pour tester le mailer, les validations sont désactivées.
+Tous les utilisateurs ont un mot de passe ultra-sécurisé :
 
-Il suffit de donner un `first_name` et un `email` aux users pour envoyer la confirmation d'inscription au service.
+> `password`
 
-Pour l'envoi des alertes d'inscription aux événements, il suffit de donner des `user_id` et `event_id` déjà existants. L'adresse de réception par défaut est [*testme@yopmail.com*](http://www.yopmail.com/).
+Avertissement : mail désactivé parce qu'Heroku pas content ...
+
 
 ### Schema de la base de données
 
 ![eventmgmt db schema](./readme_assets/eventmgmt_schema.png "eventmgmt db schema")
 
 (fait [ici](https://dbdiagram.io/d/5c5e7fb47db47000147036ce))
-
-## Some more stuff here
-
-[EvntMGMT](https://evntmgmt.herokuapp.com/)
 

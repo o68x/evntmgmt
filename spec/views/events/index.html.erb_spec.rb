@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "events/index", type: :view do
 
-  before(:each) do
-    # @events = FactoryBot.build_list(:event, 5)
+  before do
+    @event = FactoryBot.create (:event)
+    @events = assign(:events, [@event])
   end
 
   # FIXME (@LUCIEN) Link ok but test fucking fails! And why does it test the whole shit when I just want to check the navbar?
