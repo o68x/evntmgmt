@@ -25,4 +25,8 @@
     </div>
     <% end %>
 
+<%= form_tag event_pictures_path(@event), multipart: true do %>
+  <%= file_field_tag :picture %>
+<%= submit_tag "mettre à jour" %>
+<% end %>
 </div>
