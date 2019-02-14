@@ -4,7 +4,7 @@ require_relative 'application'
 ActionMailer::Base.smtp_settings = {
   :user_name => ENV['SENDGRID_LOGIN'],
   :password => ENV['SENDGRID_PWD'],
-  :domain => 'eventmgmt.fr',
+  :domain => 'eventmgmt.com',
   :address => 'smtp.sendgrid.net',
   :port => 587,
   :authentication => :plain,

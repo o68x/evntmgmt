@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     
-    if @event.save # essaie de sauvegarder en base @gossip
+    if @event.save
       flash[:success] = "Event bien enregistré ! Bravo, top !"
       redirect_to @event
     else
