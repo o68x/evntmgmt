@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :events do
     resources :attendances
-    resources :pictures, only: [:create]
+    resources :pictures, only: [:create, :update]
   end
   get 'events/:id/admin/', to: 'events#admin'
   resources :users do

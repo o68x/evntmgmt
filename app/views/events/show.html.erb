@@ -20,6 +20,12 @@
     <h2>Prix</h2>
     <p><%= @event.price %></p>
     
+    <%if @event.picture.attached? %>
+    <%= image_tag @event.picture, alt: 'avatar' %>
+    <%else%>
+    <p>=== Il n'y a pas encore de pic lié à cet événement ===</p>
+    <%end%>
+    
     <% if user_signed_in? && current_user != @event.admin %>
     <%= link_to "Inscris-toi !", new_event_attendance_path(@event.id), class: "nav-item btn btn-primary", role: "button" %>
     <% end %>

@@ -6,14 +6,15 @@ class Event < ApplicationRecord
 
   # Validations desactivated to test faster
   # in the console
-  
-  
+
+
   validates :start_date, presence: true
   validates :duration, presence: true
   validates :title, presence: true
   validates :price, presence: true
   validates :description, presence: true
   validates :location, presence: true
+  validates :picture, presence: true
   validates :admin, presence: true
 
   validates :title, length: { in: 5..240 }
@@ -24,7 +25,7 @@ class Event < ApplicationRecord
   validates :duration, numericality: { greater_than_or_equal_to: 0 }
 
   private
-  
+
   def start_date_is_future
     p start_date
     errors.add(:start_date, "is already over") unless :start_date >= 0

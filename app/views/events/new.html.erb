@@ -1,32 +1,3 @@
-<div class="container">
+<h1>New</h1>
 
-
-    <%= simple_form_for @event do |f| %>
-
-    <%= f.input :title %>
-
-    <%= f.input :description %>
-    
-    <%= f.input :location %>
-
-    <%= f.input :start_date %>
-    
-    <%= f.input :price %>
-
-    <%= f.input :duration %>
-
-    <%= f.hidden_field :user_id, value: current_user.id %>
-
-    <div class="form-group row mb-0">
-        <div class="col-sm-9 offset-sm-3">
-            <%= f.button :submit, class: "btn-primary" %>
-            <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-        </div>
-    </div>
-    <% end %>
-
-<%= form_tag event_pictures_path(@event), multipart: true do %>
-  <%= file_field_tag :picture %>
-<%= submit_tag "mettre à jour" %>
-<% end %>
-</div>
+<%= render 'form' %>
