@@ -11,8 +11,8 @@ require 'faker'
 Faker::Config.locale = 'fr'
 
 20.times do |index|
-  s = User.create(email: Faker::Internet.email,
-      password: Faker::Internet.password, 
+  s = User.create(email: "#{Faker::Internet.username}@yopmail.com",
+      password: "password", 
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       description: Faker::Hipster.paragraph)
@@ -36,7 +36,7 @@ end
 
 # Ajouter un individu connu
 
-User.create(email: "admin@event.com",
+User.create(email: "adminevent@yopmail.com",
   password: "password", 
   first_name: "Admin",
   last_name: "Event",

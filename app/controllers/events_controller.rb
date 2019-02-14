@@ -16,12 +16,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    puts '=' * 50 #ça affiche une ligne de 60 symboles $ facilement visible dans le terminal
-    puts 'create event'
-    puts params #tu sais que params doit s'afficher entre les 2
-    puts "et voici les event_params"
-    puts event_params
-    puts '=' * 50
     @event = Event.new(event_params)
     
     if @event.save # essaie de sauvegarder en base @gossip
@@ -37,9 +31,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @attendances = Attendance.where(event_id: @event.id)
     @attendants = @attendances.map { |a| User.find(a.user_id) }
-    puts 'showattendants'
-    puts params
-    puts '=' * 50
   end
 
   def admin
