@@ -1,12 +1,12 @@
-<h1>User</h1>
+<h1>User: <%= @user.email %></h1>
 
-<%= @user.email %>
+<%= @user.first_name %>
+<%= @user.last_name %>
 
-<h2>Activités</h2>
+<h2>Activité</h2>
 
-<h3>Événements</h3>
+<h3>Événements proposés</h3>
 
-<p>Événements proposés</p>
 <ul>
     <% @events.each do |event| %>
     <li><%= event.title %></li>
@@ -16,7 +16,7 @@
 <h3>Participations</h3>
 
 <ul>
-    <% @attendances.each do |attendance| %>
-        <li><%= attendance.event_id %></li>
+    <% @attended_events.each do |attend| %>
+        <li><%= attend.title %></li>
     <% end %>
 </ul>

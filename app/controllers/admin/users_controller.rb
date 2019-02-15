@@ -12,6 +12,8 @@ class Admin::UsersController < ApplicationController
     puts params
     @user = User.find(params[:id])
     @events = Event.where(user_id: @user.id)
-    @attendances = Attendance.where(user_id: @user.id)
+    attendances = Attendance.where(user_id: @user.id)
+    @attended_events = attendances.map { |e| Event.find(e.event_id) }
+    puts @attended_events
   end
 end
