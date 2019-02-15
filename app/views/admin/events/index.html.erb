@@ -1,0 +1,7 @@
+<h1>Look, you're an admin now!</h1>
+
+<ul>
+<% @events.each do |event| %>
+    <li><%= link_to event.title, admin_event_path(event.id) %></li>
+<% end %>
+</ul>
