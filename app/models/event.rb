@@ -24,6 +24,15 @@ class Event < ApplicationRecord
   validates :price, numericality: { less_than_or_equal_to: 1000 }
   validates :duration, numericality: { greater_than_or_equal_to: 0 }
 
+  def validate
+    self.validated = true
+  end
+
+  def review
+    self.reviewed = true
+  end
+
+
   private
 
   def start_date_is_future
