@@ -33,6 +33,7 @@ class EventsController < ApplicationController
     @attendants = @attendances.map { |a| User.find(a.user_id) }
   end
 
+  # FIXME Deux définitions event#admin !
   def admin
     if Event.find(params[:admin_id]).admin == current_user
       @user = current_user
@@ -76,7 +77,6 @@ class EventsController < ApplicationController
   end
 
 end
-
 
 private
 
