@@ -59,6 +59,7 @@ GEM
     ast (2.4.0)
     autoprefixer-rails (9.4.7)
       execjs
+    awesome_print (1.8.0)
     bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.4.0)
@@ -367,6 +368,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   bootsnap (>= 1.1.0)
   bootstrap
   byebug
@@ -382,7 +384,6 @@ DEPENDENCIES
   factory_bot_rails
   faker!
   font-awesome-rails
-  hirb
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener

@@ -55,8 +55,9 @@ group :development, :test do
   # Some THP added stuff
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
-  gem 'hirb'
+  gem 'awesome_print'
   gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -68,7 +69,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener'
   gem 'meta_request'
-  gem 'pry-rails'
   gem 'rubocop', require: false
 end
 

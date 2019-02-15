@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :avatars, only: [:create]
   end
+  namespace :admin do
+    resources :users
+    root 'users#index'
+  end
   root 'events#index'
 end
