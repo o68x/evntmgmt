@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :edit]
+  before_action :authenticate_user!, only: [:show, :edit, :update]
 
   def index
     @users = User.all
@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @events = Event.where(user_id: params[:id])
     p @events
-    render 'show'
   end
 
   def edit
@@ -21,4 +20,30 @@ class UsersController < ApplicationController
     end
   end
 
+  def new
+
+  end
+
+  def create
+
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Votre profil a été mis à jour !"
+      redirect_to user_path @user
+    else
+      flash[:error] = "Problème, essayer encore !"
+      render :new
+      # sinon, il render la view new (qui est celle sur laquelle on est déjà)
+    end
+  end
+
+end
+
+private
+
+def user_params
+  params.require(:user).permit(:first_name, :last_name, :description, :avatar)
 end

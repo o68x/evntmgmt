@@ -2,6 +2,10 @@
 
 <ul>
 <% @events.each do |event| %>
-    <li><%= link_to event.title, admin_event_path(event.id) %></li>
+    <li>
+        <%= link_to event.title, admin_event_path(event.id) %>
+        <%= link_to "modifier", edit_admin_event_path(event.id) %>
+        <%= link_to "supprimer", admin_event_path(event.id), method: :delete %>
+    </li>
 <% end %>
 </ul>

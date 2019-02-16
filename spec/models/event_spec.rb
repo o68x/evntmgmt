@@ -30,4 +30,7 @@ RSpec.describe Event, type: :model do
     # it { should validate :price_is_in_accepted_range}
     end
 
+  context "Query" do
+    pending "returns only reviewed events"
+  end
 end

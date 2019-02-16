@@ -32,6 +32,10 @@ class Event < ApplicationRecord
     self.reviewed = true
   end
 
+  def self.reviewed
+    where(reviewed: true)
+  end
+
 
   private
 

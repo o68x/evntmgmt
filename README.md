@@ -1,5 +1,13 @@
 # README
 
+## Admin dashboard
+
+L'admin est codé en dur :
+
+> **username** : `admin@evntmgmt.com`
+> 
+> **password**: `evntmgmt`
+
 **En prod' sur [Heroku](https://evntmgmt.herokuapp.com/).**
 
 Tous les utilisateurs ont un mot de passe ultra-sécurisé :

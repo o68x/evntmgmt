@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_user!
   # TODO Make it CRUD
   def index
     puts "=" * 50

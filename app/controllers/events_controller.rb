@@ -2,7 +2,13 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :admin]
 
   def index
-    @events = Event.all
+    @events = Event.reviewed
+  end
+  
+  def show
+    @event = Event.find(params[:id])
+    @attendances = Attendance.where(event_id: @event.id)
+    @attendants = @attendances.map { |a| User.find(a.user_id) }
   end
 
   def new
@@ -25,12 +31,6 @@ class EventsController < ApplicationController
       flash[:warning] = "Ooops, comme un blème.."
       render "new"
     end
-  end
-
-  def show
-    @event = Event.find(params[:id])
-    @attendances = Attendance.where(event_id: @event.id)
-    @attendants = @attendances.map { |a| User.find(a.user_id) }
   end
 
   # FIXME Deux définitions event#admin !

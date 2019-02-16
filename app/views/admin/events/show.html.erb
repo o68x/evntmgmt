@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1><%= @event.title %></h1>
+    </div>
+    <p>(#TODO) formulaire avec checkbox reviewed et validated</p>
+    </div>
+    <h2>Utilisateur</h2>
+    <p><%= @event.admin.email %></p>
+    <p><a href="mailto:<%= @event.admin.email %>">Envoyer un mail</a></p>
+
+    <h2>Description</h2>
+    <p><%= @event.description %></p>
+
+    <h2>Date</h2>
+    <p><%= @event.start_date %></p>
+
+    <h2>Lieu</h2>
+    <p><%= @event.location %></p>
+
+    <h2>Prix</h2>
+    <p><%= @event.price %></p>
+    
+    <%if @event.picture.attached? %>
+    <%= image_tag @event.picture, alt: 'avatar' %>
+    <%else%>
+    <p>=== Il n'y a pas encore de pic lié à cet événement ===</p>
+    <%end%>
+    
+    <%= link_to "modifier", edit_admin_event_path(@event) %>
+    <p>#TODO add dependant clause in model if deleting event with attendants !</p>
+    <%= link_to "supprimer", admin_event_path(@event), method: :delete %>
+</div>
