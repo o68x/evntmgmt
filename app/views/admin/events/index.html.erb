@@ -6,6 +6,8 @@
         <%= link_to event.title, admin_event_path(event.id) %>
         <%= link_to "modifier", edit_admin_event_path(event.id) %>
         <%= link_to "supprimer", admin_event_path(event.id), method: :delete %>
+        <%= event.is_reviewed ? 'vu' : 'à voir' %>
+        <%= event.is_validated ? 'validé' : 'à valider' %>
     </li>
 <% end %>
 </ul>

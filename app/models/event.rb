@@ -24,12 +24,20 @@ class Event < ApplicationRecord
   validates :price, numericality: { less_than_or_equal_to: 1000 }
   validates :duration, numericality: { greater_than_or_equal_to: 0 }
 
-  def validate
-    self.validated = true
+  def toggle_review
+    self.reviewed = !self.reviewed
   end
 
-  def review
-    self.reviewed = true
+  def toggle_validation
+    self.validated = !self.validated
+  end
+
+  def is_reviewed
+    self.reviewed
+  end
+
+  def is_validated
+    self.validated
   end
 
   def self.reviewed

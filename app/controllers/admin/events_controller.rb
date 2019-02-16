@@ -24,4 +24,5 @@ class Admin::EventsController < ApplicationController
     @event.destroy
     redirect_to request.referrer
   end
+
 end

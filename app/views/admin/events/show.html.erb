@@ -2,7 +2,12 @@
     <div class="jumbotron">
         <h1><%= @event.title %></h1>
     </div>
-    <p>(#TODO) formulaire avec checkbox reviewed et validated</p>
+    <div class="container">
+        <h2>Status</h2>
+        <p>Vu ? <%= @event.reviewed.to_s %></p>
+        <p>Validé ? <%= @event.validated.to_s %></p>
+
+    </div>
     </div>
     <h2>Utilisateur</h2>
     <p><%= @event.admin.email %></p>
