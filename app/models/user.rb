@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :events, inverse_of: 'admin'
-  has_many :attendances
+  has_many :attendances, dependent: :destroy
   has_many :events, through: :attendances
   has_one_attached :avatar
   

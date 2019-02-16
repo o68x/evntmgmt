@@ -1,5 +1,12 @@
 class Admin::EventsController < ApplicationController
-  before_action :authenticate_user!
+  before_action do
+    :authenticate_user!
+    unless current_user.email == 'admin@evntmgmt.com'
+      redirect_to root_path
+      flash[:warning] = "Sorry, your're not admin !"
+    end
+  end
+  
   def index
     @events = Event.all
   end
@@ -15,6 +22,6 @@ class Admin::EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    reload
+    redirect_to request.referrer
   end
 end

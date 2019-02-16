@@ -2,7 +2,7 @@
 
 ## Admin dashboard
 
-L'admin est codé en dur :
+L'admin est codé en dur (pas de log in spécifique) :
 
 > **username** : `admin@evntmgmt.com`
 > 
