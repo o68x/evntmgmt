@@ -5,9 +5,14 @@ class AttendancesController < ApplicationController
   end
 
   def create
+    # TODO only one attendance possible
+    # and not attend your own event
     # create a stripe payment
     @event = Event.find(params[:event_id])
     @amount = @event.price * 100
+    @attendance = Attendance.new
+    @attendance.user = current_user
+    @attendance.event = @event
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
@@ -20,10 +25,10 @@ class AttendancesController < ApplicationController
       description:  'Rails Stripe customer',
       currency:     'usd'
     )
-    # @attendance = Attendance.save(attendance_params)
-    a = Attendance.new(stripe_customer_id: customer.id, event_id: @event.id, user_id: current_user.id)
-
-		if a.save
+    
+    @attendance.stripe_customer_id = customer.id
+    
+    if @attendance.save
 			redirect_to event_path(@event.id)
 		else
 			render new_event_charge_path(@event.id)

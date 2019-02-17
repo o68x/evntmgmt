@@ -33,16 +33,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # FIXME Deux définitions event#admin !
-  def admin
-    if Event.find(params[:admin_id]).admin == current_user
-      @user = current_user
-    else
-      flash[:warning] = "You're not #{User.find(params[:id]).first_name} !"
-      redirect_to edit_user_path(current_user)
-    end
-  end
-
   def admin
     @event = Event.find(params[:id])
     if @event.user_id != current_user.id

@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
       flash[:warning] = "Sorry, not an admin !"
     end
   end
-  # TODO Make it CRUD
+
   def index
     puts "=" * 50
     puts "here's your index"
@@ -16,12 +16,12 @@ class Admin::UsersController < ApplicationController
   def show
     puts "=" * 50
     puts "here's your show"
-    puts params
+    ap params
     @user = User.find(params[:id])
     @events = Event.where(user_id: @user.id)
     attendances = Attendance.where(user_id: @user.id)
     @attended_events = attendances.map { |e| Event.find(e.event_id) }
-    puts @attended_events
+    ap @attended_events
   end
 
   def edit

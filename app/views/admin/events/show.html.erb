@@ -32,6 +32,5 @@
     <%end%>
     
     <%= link_to "modifier", edit_admin_event_path(@event) %>
-    <p>#TODO add dependant clause in model if deleting event with attendants !</p>
     <%= link_to "supprimer", admin_event_path(@event), method: :delete %>
 </div>

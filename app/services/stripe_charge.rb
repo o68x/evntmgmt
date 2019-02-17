@@ -1,7 +1,6 @@
 class StripeCharge
 # create a stripe payment
 # call with StripeCharge.new.perform
-# TODO add keys to Heroku
   def initialize(params)
     @event = params[:event_id]
     @amount = params[:amount]

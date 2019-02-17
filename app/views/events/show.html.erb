@@ -32,7 +32,6 @@
 
     <p><br/>Déjà <%= @attendants.count %> participants</p>
 
-    <!--# TODO Pb ajout des inscriptions dans la db -->
     <% if user_signed_in? && current_user == @event.admin %>
     <ul>
         <% @attendants.each do |attendant| %>
