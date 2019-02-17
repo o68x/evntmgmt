@@ -8,12 +8,14 @@ class User < ApplicationRecord
   has_many :events, through: :attendances
   has_one_attached :avatar
   
-validates :first_name,
+# REF 2019-02-17 Validation deactivated for heroku...
+=begin
+  validates :first_name,
           :last_name,
           :description,
           :email,
           :avatar, presence: true
-
+=end
 #  after_create :welcome_send
 
   def full_name
