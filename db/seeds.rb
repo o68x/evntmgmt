@@ -25,11 +25,13 @@ end
       description: Faker::Hipster.paragraph,
       price: rand(50..400),
       location: Faker::Restaurant.name,
-      user_id: User.all.sample.id)
+      user_id: User.all.sample.id,
+      validated: [true, false].sample,
+      reviewed: [true, false].sample)
 end
 
 50.times do |index|
-  s = Attendance.create(stripe_customer_id: "HIDDEN",
+  s = Attendance.create(stripe_customer_id: "",
       user_id: User.all.sample.id,
       event_id: Event.all.sample.id)
 end
@@ -42,7 +44,13 @@ User.create(email: "adminevent@yopmail.com",
   last_name: "Event",
   description: Faker::Hipster.paragraph)
 
-Event.create(start_date: Faker::Date.forward(15),
+  User.create(email: "admin@evntmgmt.com",
+    password: "evntmgmt", 
+    first_name: "Admin",
+    last_name: "Evntmgmt",
+    description: Faker::Hipster.paragraph)
+  
+  Event.create(start_date: Faker::Date.forward(15),
   duration: rand(12..48) * 5,
   title: "On va voir",
   description: Faker::Hipster.paragraph,

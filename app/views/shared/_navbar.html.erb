@@ -40,6 +40,11 @@
                         <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
                     </li>
                     <% end %>
+                    <% if is_user_admin? %>
+                    <li>
+                    <%= link_to 'Dashboard', admin_root_path, class: "dropdown-item" %>
+                    <% end %>
+                    </li>
                 </ul>
             </li>
         </ul>

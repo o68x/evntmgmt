@@ -8,14 +8,10 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
-    puts "=" * 50
-    puts "here's your show"
-    ap params
     @user = User.find(params[:id])
     @events = Event.where(user_id: @user.id)
     attendances = Attendance.where(user_id: @user.id)
     @attended_events = attendances.map { |e| Event.find(e.event_id) }
-    ap @attended_events
   end
 
   def edit
