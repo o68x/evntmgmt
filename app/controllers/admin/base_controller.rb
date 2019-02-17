@@ -1,5 +1,6 @@
 class Admin::BaseController < ApplicationController
   layout 'application_admin'
+  # MAYBE: use devise roles for admin autentication?
   before_action do
     :authenticate_user!
     unless current_user.email == 'admin@evntmgmt.com'
@@ -7,7 +8,7 @@ class Admin::BaseController < ApplicationController
       flash[:warning] = "Sorry, not an admin !"
     end
   end
-  
+
   def some_shared_method
     # Do something
   end

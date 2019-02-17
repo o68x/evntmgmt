@@ -9,5 +9,13 @@ module ApplicationHelper
         when 'alert' then "alert alert-error alert-dismissible fade show"
     end
   end
-
+  # REF https://www.railstutorial.org/book/rails_flavored_ruby#code-application_layout_full_title
+  def full_title(page_title = '')
+    base_title = "EvntMGMT"
+    if page_title.empty?
+      base_title
+    else
+      page_title + " | " + base_title
+    end
+  end
 end

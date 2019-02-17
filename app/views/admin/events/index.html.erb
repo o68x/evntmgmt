@@ -1,13 +1,7 @@
+<div class="container">
 <h1>Look, you're an admin now!</h1>
 
-<ul>
-<% @events.each do |event| %>
-    <li>
-        <%= link_to event.title, admin_event_path(event.id) %>
-        <%= link_to "modifier", edit_admin_event_path(event.id) %>
-        <%= link_to "supprimer", admin_event_path(event.id), method: :delete %>
-        <%= event.is_reviewed ? 'vu' : 'à voir' %>
-        <%= event.is_validated ? 'validé' : 'à valider' %>
-    </li>
-<% end %>
-</ul>
+
+<%= render partial: 'event', collection: @events %>
+
+</div>
