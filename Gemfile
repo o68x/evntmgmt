@@ -47,6 +47,8 @@ gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'dotenv-rails'
 gem 'stripe'
+gem "aws-sdk-s3", require: false
+gem "image_processing", "~> 1.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
