@@ -1,12 +1,5 @@
-class Admin::EventsController < ApplicationController
-  before_action do
-    :authenticate_user!
-    unless current_user.email == 'admin@evntmgmt.com'
-      redirect_to root_path
-      flash[:warning] = "Sorry, your're not admin !"
-    end
-  end
-  
+class Admin::EventsController < Admin::BaseController
+
   def index
     @events = Event.all
   end

@@ -3,7 +3,8 @@ class Attendance < ApplicationRecord
   belongs_to :event
 
   validates :user, presence: true
-  validates :event, presence: true
+  # FIXME: rollback stripe payment too?
+  validates :event, presence: true, uniqueness: { scope: :user, message: "cannot attend twice" }
 
 #  after_create :attendance_send
 

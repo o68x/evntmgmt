@@ -1,11 +1,5 @@
-class Admin::UsersController < ApplicationController
-  before_action do
-    :authenticate_user!
-    unless current_user.email == 'admin@evntmgmt.com'
-      redirect_to root_path
-      flash[:warning] = "Sorry, not an admin !"
-    end
-  end
+class Admin::UsersController < Admin::BaseController
+
 
   def index
     puts "=" * 50

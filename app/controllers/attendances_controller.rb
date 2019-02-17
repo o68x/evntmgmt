@@ -23,15 +23,17 @@ class AttendancesController < ApplicationController
       customer:     customer.id,
       amount:       @amount,
       description:  'Rails Stripe customer',
-      currency:     'usd'
+      currency:     'eur'
     )
     
     @attendance.stripe_customer_id = customer.id
     
+    # TODO: get meaningful error message from validation
     if @attendance.save
 			redirect_to event_path(@event.id)
-		else
-			render new_event_charge_path(@event.id)
+    else
+      flash[:warning] = "Something went wrong"
+			render new_charge_path(@event.id)
     end
     
   rescue Stripe::CardError => e
