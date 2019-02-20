@@ -20,6 +20,8 @@ module ApplicationHelper
   end
 
   def user_is_admin(user)
-    user.email == 'admin@evntmgmt.com' ? true : false
+    # SU is a global variable defining email of 'Super User"
+    # in config/initializers/my_constants.rb
+    user.email == SU ? true : false
   end
 end

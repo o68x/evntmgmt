@@ -3,7 +3,8 @@ class Admin::BaseController < ApplicationController
   # MAYBE: use devise roles for admin autentication?
   before_action do
     :authenticate_user!
-    unless user_signed_in? && current_user.email == 'admin@evntmgmt.com'
+    # SU is a global variable defining email of 'Super User"
+    unless user_signed_in? && current_user.email == SU
       redirect_to root_path
       flash[:warning] = "Sorry, not an admin !"
     end
