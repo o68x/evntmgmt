@@ -4,24 +4,7 @@
 
     <div class="card-columns">
 
-        <% @events.each do |event| %>
-        <div class="card">
-            <div class="card-body">
-                <h5 class=card-title>
-                    <%= event[:title] %>
-                </h5>
-                <a class="card-text">
-                    <p>
-                        <%= event.description %>
-                </a></em>.</p>
-                <a class="button card-link btn btn-primary m-1" href="<%= event_path(event[:id]) %>"><i class="fa fas fa-arrow-right"></i></a>
-            </div>
-            <div class="card-footer text-muted">
-                <%= event[:start_date].strftime("%d/%m/%y") %><br/>
-                <%= event.price %> €
-            </div>
-        </div>
-        <% end %>
+        <%= render partial: 'index_card', collection: @events %>
 
     </div>
 </div>
