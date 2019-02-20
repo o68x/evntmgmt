@@ -19,7 +19,7 @@ Avertissement : mail désactivé parce qu'Heroku pas content ...
 
 ### Schema de la base de données
 
-![eventmgmt db schema](./assets/readme/eventmgmt_schema.png "eventmgmt db schema")
+![eventmgmt db schema](./app/assets/readme/eventmgmt_schema.png "eventmgmt db schema")
 
 (fait [ici](https://dbdiagram.io/d/5c5e7fb47db47000147036ce))
 
