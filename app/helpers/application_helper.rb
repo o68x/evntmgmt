@@ -18,4 +18,8 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  def user_is_admin(user)
+    user.email == 'admin@evntmgmt.com' ? true : false
+  end
 end

@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       flash[:success] = "Votre profil a été mis à jour !"
       redirect_to user_path @user
     else
-      flash[:error] = "Problème, essayer encore !"
+      flash.now[:error] = "Problème, essayer encore !"
       render :new
       # sinon, il render la view new (qui est celle sur laquelle on est déjà)
     end

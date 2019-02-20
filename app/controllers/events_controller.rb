@@ -16,7 +16,7 @@ class EventsController < ApplicationController
       flash[:notice] = "Let's go!"
       @event = Event.new
     else
-      flash[:warning] = "You are not logged in!"
+      flash.now[:warning] = "You are not logged in!"
       render
     end
   end
@@ -28,7 +28,7 @@ class EventsController < ApplicationController
       flash[:success] = "Event bien enregistré ! Bravo, top !"
       redirect_to @event
     else
-      flash[:warning] = "Ooops, comme un blème.."
+      flash.now[:warning] = "Ooops, comme un blème.."
       render "new"
     end
   end
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
       flash[:success] = "Votre event a été mis à jour !"
       redirect_to event_path @event
     else
-      flash[:error] = "Problème, essayer encore !"
+      flash.now[:error] = "Problème, essayer encore !"
       render :new
       # sinon, il render la view new (qui est celle sur laquelle on est déjà)
     end

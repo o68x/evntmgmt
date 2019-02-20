@@ -18,10 +18,6 @@ class User < ApplicationRecord
 =end
 #  after_create :welcome_send
 
-  def is_user_admin?
-    self.email == 'admin@evntmgmt.com' ? true : false
-  end
-
   def full_name
     [self.first_name, self.last_name].join(' ')
   end
