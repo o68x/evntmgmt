@@ -35,7 +35,7 @@ class EventsController < ApplicationController
 
   def admin
     @event = Event.find(params[:id])
-    if @event.user_id != current_user.id
+    if user_signed_in? && @event.user_id != current_user.id
       flash[:warning] = "You're not admin for this event !"
       redirect_back(fallback_location: root_path)
     end

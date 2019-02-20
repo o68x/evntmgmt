@@ -24,7 +24,7 @@ end
       title: Faker::Quote.robin,
       description: Faker::Hipster.paragraph,
       price: rand(50..400),
-      location: Faker::Restaurant.name,
+      location: "#{Faker::Restaurant.name}, #{Faker::Address.street_address}",
       user_id: User.all.sample.id,
       validated: [true, false].sample,
       reviewed: [true, false].sample)
@@ -44,6 +44,20 @@ User.create(email: "adminevent@yopmail.com",
   last_name: "Event",
   description: Faker::Hipster.paragraph)
 
+  Event.create(start_date: Faker::Date.forward(15),
+  duration: rand(12..48) * 5,
+  title: "On va voir",
+  description: Faker::Hipster.paragraph,
+  price: rand(50..400),
+  location: "#{Faker::Restaurant.name}, #{Faker::Address.street_address}",
+  user_id: User.last.id)
+
+  5.times do |index|
+    s = Attendance.create(stripe_customer_id: "HIDDEN",
+        user_id: User.all.sample.id,
+        event_id: Event.last.id)
+  end
+
   User.create(email: "admin@evntmgmt.com",
     password: "evntmgmt", 
     first_name: "Admin",
@@ -55,7 +69,7 @@ User.create(email: "adminevent@yopmail.com",
   title: "On va voir",
   description: Faker::Hipster.paragraph,
   price: rand(50..400),
-  location: Faker::Restaurant.name,
+  location: "#{Faker::Restaurant.name}, #{Faker::Address.street_address}",
   user_id: User.last.id)
 
   5.times do |index|
