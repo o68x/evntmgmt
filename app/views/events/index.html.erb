@@ -1,10 +1,8 @@
 <% provide(:title, "Events") %>
 <div class="container">
 
+  <div class="card-columns">
+    <%= render partial: 'index_card', collection: @events %>
+  </div>
 
-    <div class="card-columns">
-
-        <%= render partial: 'index_card', collection: @events %>
-
-    </div>
 </div>

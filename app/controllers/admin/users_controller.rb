@@ -4,7 +4,8 @@ class Admin::UsersController < Admin::BaseController
   def index
     puts "=" * 50
     puts "here's your index"
-    @users = User.all
+    ap User.all
+    @users = User.all.sort_by { |k| k[:first_name] }
   end
 
   def show

@@ -11,7 +11,7 @@ module ApplicationHelper
   end
   # REF https://www.railstutorial.org/book/rails_flavored_ruby#code-application_layout_full_title
   def full_title(page_title = '')
-    base_title = "EvntMGMT"
+    base_title = "evntMGMT"
     if page_title.empty?
       base_title
     else

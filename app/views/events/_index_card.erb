@@ -1,16 +1,18 @@
 <div class="card">
+  <!-- MAYBE Some render variable to change display for admin -->
   <div class="card-body">
-      <h5 class=card-title>
-          <%= index_card[:title] %>
-      </h5>
-      <a class="card-text">
-          <p>
-              <%= index_card.description %>
-      </a></em>.</p>
-      <a class="button card-link btn btn-primary m-1" href="<%= event_path(index_card[:id]) %>"><i class="fa fas fa-arrow-right"></i></a>
+    <h5 class=card-title>
+      <%= index_card[:title] %>
+    </h5>
+    <a class="card-text">
+      <p>
+        <%= index_card.description %>
+      </p>
+    </a>
+    <a class="button card-link btn btn-primary m-1" href="<%= event_path(index_card[:id]) %>"><i class="fa fas fa-arrow-right"></i></a>
   </div>
   <div class="card-footer text-muted">
-      <%= index_card[:start_date].strftime("%d/%m/%y") %><br/>
-      <%= index_card.price %> €
+    <%= index_card[:start_date].strftime("%d/%m/%y") %><br />
+    <%= index_card.price %> €
   </div>
 </div>

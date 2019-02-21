@@ -1,7 +1,7 @@
 class Admin::EventsController < Admin::BaseController
 
   def index
-    @events = Event.all
+    @events = Event.all.sort_by { |k| k[:start_date] }
   end
 
   def show
