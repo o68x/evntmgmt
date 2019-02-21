@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
 
 def create
     puts 'new pic params'
-    ap params #tu sais que params doit s'afficher entre les 2
+    puts params #tu sais que params doit s'afficher entre les 2
     puts '=' * 50
     @event = Event.find(params[:event_id])
     @event.picture.attach(params[:picture])
