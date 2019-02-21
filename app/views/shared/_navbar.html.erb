@@ -28,10 +28,10 @@
                         <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                     </li>
                     <li>
-                        <%= link_to "edit_user_path", edit_user_path(current_user.id), class: "dropdown-item" %>
+                        <%= link_to "Edit profile", edit_user_path(current_user.id), class: "dropdown-item" %>
                     </li>
                     <li>
-                        <%= link_to "Edit email / password", edit_user_registration_path, class: "dropdown-item" %>
+                        <%= link_to "Edit settings", edit_user_registration_path, class: "dropdown-item" %>
                     </li>   
                     <!-- IF USER IS NOT AUTHENTICATED -->
                     <% else %>

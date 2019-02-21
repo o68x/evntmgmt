@@ -5,7 +5,7 @@
         <% if user_signed_in? && current_user == @event.admin %>
         <a href="<%= event_path(@event.id) %>/admin" class="nav-item btn btn-primary" role="button">Mon espace</a>
         <% else %>
-        <h2>Un événement proposé par <a href="mailto:<%= @event.admin.email %>"><%= @event.admin.email %></a></h2>
+        <h2>Un événement proposé par <a href="mailto:<%= @event.admin.email %>"><%= @event.admin.full_name %></a></h2>
         <% end %>
     </div>
 
@@ -29,6 +29,8 @@
     
     <% if user_signed_in? && current_user != @event.admin %>
     <%= link_to "Inscris-toi !", new_event_attendance_path(@event.id), class: "nav-item btn btn-primary", role: "button" %>
+    <% else %>
+    <%= link_to "Connecte-toi pour t'inscrire !", new_user_session_path, class: "nav-item btn btn-primary", role: "button" %>
     <% end %>
 
     <p><br/>Déjà <%= @attendants.count %> participants</p>
