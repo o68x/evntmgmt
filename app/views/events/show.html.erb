@@ -29,8 +29,6 @@
     
     <% if user_signed_in? && current_user != @event.admin %>
     <%= link_to "Inscris-toi !", new_event_attendance_path(@event.id), class: "nav-item btn btn-primary", role: "button" %>
-    <% else %>
-    <%= link_to "Connecte-toi pour t'inscrire !", new_user_session_path, class: "nav-item btn btn-primary", role: "button" %>
     <% end %>
 
     <p><br/>Déjà <%= @attendants.count %> participants</p>

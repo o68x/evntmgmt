@@ -12,10 +12,13 @@ Faker::Config.locale = 'fr'
 
 20.times do |index|
   s = User.create(email: "#{Faker::Internet.username}@yopmail.com",
-      password: "password", 
+      password: "password",
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       description: Faker::Hipster.paragraph)
+  s.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'icons8-anonymous-user-96.png')),
+                      filename: 'icons8-anonymous-user-96.png',
+                      content_type: 'image/png')
 end
 
 10.times do |index|
@@ -36,21 +39,26 @@ end
       event_id: Event.all.sample.id)
 end
 
-# Ajouter un individu connu
+# Ajouter un individu connu (admin d'un événement) et l'admin du site
 
-User.create(email: "adminevent@yopmail.com",
-  password: "password", 
+  u = User.create(email: "adminevent@yopmail.com",
+  password: "password",
   first_name: "Admin",
   last_name: "Event",
   description: Faker::Hipster.paragraph)
+  u.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'icons8-anonymous-user-96.png')),
+                      filename: 'icons8-anonymous-user-96.png',
+                      content_type: 'image/png')
 
   Event.create(start_date: Faker::Date.forward(15),
   duration: rand(12..48) * 5,
-  title: "On va voir",
+  title: "On va voir si ça marche",
   description: Faker::Hipster.paragraph,
   price: rand(50..400),
   location: "#{Faker::Restaurant.name}, #{Faker::Address.street_address}",
-  user_id: User.last.id)
+  user_id: User.last.id,
+  validated: true,
+  reviewed: true)
 
   5.times do |index|
     s = Attendance.create(stripe_customer_id: "HIDDEN",
@@ -59,11 +67,11 @@ User.create(email: "adminevent@yopmail.com",
   end
 
   User.create(email: "admin@evntmgmt.com",
-    password: "evntmgmt", 
+    password: "evntmgmt",
     first_name: "Admin",
     last_name: "Evntmgmt",
     description: Faker::Hipster.paragraph)
-  
+
   Event.create(start_date: Faker::Date.forward(15),
   duration: rand(12..48) * 5,
   title: "On va voir",

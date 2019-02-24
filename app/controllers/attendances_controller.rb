@@ -5,9 +5,6 @@ class AttendancesController < ApplicationController
   end
 
   def create
-    # TODO only one attendance possible
-    # and not attend your own event
-    # create a stripe payment
     @event = Event.find(params[:event_id])
     @amount = @event.price * 100
     @attendance = Attendance.new
