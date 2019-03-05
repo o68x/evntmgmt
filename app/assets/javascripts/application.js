@@ -13,7 +13,21 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery3
-//= require popper
-//= require bootstrap
 //= require_tree .
+
+//= require js/core/jquery.3.2.1.min
+//= require js/core/popper.min
+//= require js/core/bootstrap.min
+//= require js/plugins/moment.min
+//= require js/plugins/bootstrap-tagsinput
+//= require js/plugins/bootstrap-switch
+//= require js/plugins/bootstrap-selectpicker
+//= require js/plugins/jasny-bootstrap.min
+//= require js/plugins/nouislider.min
+//= require js/plugins/bootstrap-datetimepicker.min
+//= require js/now-ui-kit
+
+$(document).ready(function() {
+  // the body of this function is in assets/js/now-ui-kit.js
+  nowuiKit.initSliders();
+});

@@ -12,7 +12,10 @@
  *
  * #REF https://medium.freecodecamp.org/add-bootstrap-to-your-ruby-on-rails-project-8d76d70d0e3b
  *
+ *= require css/bootstrap.min
  *= require font-awesome
+ *= require css/now-ui-kit
  */
- @import 'bootstrap';
+ 
+ // @import 'bootstrap';
  
